@@ -1,0 +1,6 @@
+{
+  "contentGenerator": {
+    "timeout": 800
+  },
+  "streaming": true
+}

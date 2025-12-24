@@ -1,0 +1,174 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.heroBanner {
+  padding: 6rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #031045 0%, #084dc4 100%);
+  color: white;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 4rem 2rem;
+    min-height: auto;
+  }
+}
+
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+@media screen and (max-width: 996px) {
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+}
+
+.heroSubtitle {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+@media screen and (max-width: 996px) {
+  .heroSubtitle {
+    font-size: 1.5rem;
+  }
+}
+
+.heroTagline {
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  opacity: 0.85;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 768px) {
+  .heroButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.features {
+  padding: 5rem 0;
+  background-color: #f8f9fa;
+}
+
+@media screen and (max-width: 996px) {
+  .features {
+    padding: 3rem 1rem;
+  }
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+@media screen and (max-width: 996px) {
+  .featuresGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .featuresGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.featureCard {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.featureIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.featureTitle {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #1a2a6c;
+  font-weight: 600;
+}
+
+.featureDescription {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.button {
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.button--primary {
+  background-color: #25c2a0;
+  color: white;
+  border: none;
+}
+
+.button--primary:hover {
+  background-color: #21af90;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 194, 160, 0.4);
+}
+
+.button--secondary {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.button--secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
