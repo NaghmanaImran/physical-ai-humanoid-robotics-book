@@ -118,6 +118,10 @@ const config = {
           },
         ],
       },
+      // Adding the search button as a custom component
+      algolia: {
+        // Optional: Adding Algolia search if needed in the future
+      },
       footer: {
         style: 'dark',
         links: [
