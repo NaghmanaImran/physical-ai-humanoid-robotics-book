@@ -8,7 +8,7 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #031045 0%, #084dc4 100%);
+  background: linear-gradient(135deg, #031045 0%, #02122d 100%);
   color: white;
   min-height: 80vh;
   display: flex;
@@ -54,7 +54,7 @@
   }
 }
 
-.heroTagline {
+.heroText {
   font-size: 1.2rem;
   margin-bottom: 2.5rem;
   line-height: 1.6;
