@@ -8,6 +8,15 @@ const sidebars = {
   moduleSidebar: [
     {
       type: 'category',
+      label: 'Introduction',
+      collapsible: true,
+      collapsed: false,
+      items: [
+        'intro',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Module 1: ROS 2',
       collapsible: true,
       collapsed: false,
@@ -22,7 +31,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Module 2: Digital Twin (Gazebo & Unity)',
+      label: 'Module 2: Digital Twin',
       collapsible: true,
       collapsed: false,
       items: [
@@ -50,7 +59,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Module 4: VLA (Vision-Language-Action)',
+      label: 'Module 4: VLA',
       collapsible: true,
       collapsed: false,
       items: [
@@ -60,6 +69,15 @@ const sidebars = {
         'vla/implementation',
         'vla/applications',
         'vla/future-directions',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Capstone Project',
+      collapsible: true,
+      collapsed: false,
+      items: [
+        'capstone-project',
       ],
     },
   ],
