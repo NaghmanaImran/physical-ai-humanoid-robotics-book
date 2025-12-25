@@ -50,6 +50,15 @@ const sidebars = {
       ],
     },
     {
+      type: 'category',
+      label: 'Capstone Project',
+      collapsible: true,
+      collapsed: false,
+      items: [
+        'capstone-project',
+      ],
+    },
+    {
       type: 'html',
       value: '<div style="height: 2px; background: var(--ifm-color-emphasis-300); margin: 1.5rem 0;"></div>',
       defaultStyle: true,
