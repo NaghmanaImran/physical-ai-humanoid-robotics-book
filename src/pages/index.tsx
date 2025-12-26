@@ -21,7 +21,13 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
+            Introduction
+          </Link>
+          <Link
+            className="button button--primary button--lg"
+            style={{ marginLeft: '1rem' }}
+            to="/docs/ros2/intro">
+            Start Reading →
           </Link>
         </div>
       </div>

@@ -26,13 +26,14 @@ const sidebars: SidebarsConfig = {
           collapsed: false,
           items: [
             'introduction/overview',
-            'introduction/history',
-            'introduction/fundamentals',
+            'introduction/prerequisites',
+            'introduction/course-structure',
+            'introduction/learning-outcomes',
           ],
         },
         {
           type: 'category',
-          label: 'ROS2 Module',
+          label: 'ROS2: The Robotic Nervous System',
           collapsed: false,
           items: [
             'ros2/intro',
@@ -45,7 +46,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Gazebo Module',
+          label: 'Gazebo Simulation',
           collapsed: false,
           items: [
             'gazebo/intro',
@@ -58,7 +59,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'NVIDIA Isaac Module',
+          label: 'NVIDIA Isaac Platform',
           collapsed: false,
           items: [
             'nvidia-isaac/intro',
@@ -71,7 +72,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'VLA (Vision-Language-Action) Module',
+          label: 'VLA (Vision-Language-Action) Systems',
           collapsed: false,
           items: [
             'vla/intro',
@@ -90,7 +91,6 @@ const sidebars: SidebarsConfig = {
             'integration/hardware',
             'integration/software',
             'integration/real-world-applications',
-            'integration/training-methods',
           ],
         },
         {

@@ -2,37 +2,46 @@
 sidebar_position: 1
 ---
 
-# Physical AI & Humanoid Robotics: Textbook Introduction
+# Tutorial Intro
 
-Welcome to the comprehensive textbook on Physical AI & Humanoid Robotics. This textbook is designed to provide a thorough understanding of the cutting-edge technologies and methodologies that are shaping the future of robotics.
+Let's discover **Docusaurus in less than 5 minutes**.
 
-## About This Textbook
+## Getting Started
 
-This textbook covers the essential components of modern humanoid robotics systems, including:
+Get started by **creating a new site**.
 
-- **ROS2 (Robot Operating System 2)**: The middleware framework for robotics applications
-- **Gazebo**: The simulation environment for robotics development
-- **NVIDIA Isaac**: The AI-powered robotics platform for perception and manipulation
-- **VLA (Vision-Language-Action)**: The multimodal AI systems for robot cognition
+Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
 
-## Target Audience
+### What you'll need
 
-This textbook is designed for:
-- Graduate students in robotics, AI, and computer science
-- Researchers working in physical AI and humanoid robotics
-- Engineers developing robotic systems
-- Anyone interested in the intersection of AI and robotics
+- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
+  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
 
-## How to Use This Textbook
+## Generate a new site
 
-Each module is structured to provide both theoretical foundations and practical implementation. We recommend following the modules in sequence, as later concepts build on earlier ones. However, each module is also designed to be accessible independently for those with prior knowledge.
+Generate a new Docusaurus site using the **classic template**.
 
-## Prerequisites
+The classic template will automatically be added to your project after you run the command:
 
-Readers should have:
-- Basic programming experience (Python/C++)
-- Understanding of linear algebra and calculus
-- Familiarity with machine learning concepts
-- Basic knowledge of physics and mechanics (helpful but not required)
+```bash
+npm init docusaurus@latest my-website classic
+```
 
-Let's begin our journey into the fascinating world of Physical AI and Humanoid Robotics.
+You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+
+The command also installs all necessary dependencies you need to run Docusaurus.
+
+## Start your site
+
+Run the development server:
+
+```bash
+cd my-website
+npm run start
+```
+
+The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+
+The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+
+Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
