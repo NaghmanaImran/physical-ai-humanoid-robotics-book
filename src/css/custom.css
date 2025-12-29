@@ -28,3 +28,23 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+/* Custom styling for the "Start Reading" button */
+.button--primary[href="/docs/ros2/intro"] {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: white;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.button--primary[href="/docs/ros2/intro"]:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+.button--primary[href="/docs/ros2/intro"]:focus {
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
