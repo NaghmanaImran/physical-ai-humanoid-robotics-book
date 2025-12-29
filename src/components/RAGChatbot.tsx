@@ -439,7 +439,7 @@ const RAGChatbot: React.FC = () => {
             </div>
           </div>
         </div>
-      )}
+      </motion.div>
     </AnimatePresence>
     </>
   );
