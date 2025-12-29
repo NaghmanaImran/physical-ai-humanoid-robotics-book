@@ -201,15 +201,16 @@ const RAGChatbot: React.FC = () => {
         className="rag-chatbot-button"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        animate={{ 
+        animate={{
           scale: [1, 1.05, 1],
         }}
-        transition={{ 
+        transition={{
           duration: 2,
           repeat: Infinity,
           repeatType: "loop",
           ease: "easeInOut"
         }}
+        whileHover={{ backgroundColor: '#0284c7' }}
         style={{
           position: 'fixed',
           bottom: '20px',
@@ -217,13 +218,13 @@ const RAGChatbot: React.FC = () => {
           width: '60px',
           height: '60px',
           borderRadius: '50%',
-          backgroundColor: 'var(--ifm-color-primary)',
+          backgroundColor: '#0ea5e9',
           color: 'white',
           border: 'none',
           fontSize: '24px',
           cursor: 'pointer',
           zIndex: 1000,
-          boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
+          boxShadow: '0 4px 8px rgba(14, 165, 233, 0.3)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center'
@@ -247,10 +248,10 @@ const RAGChatbot: React.FC = () => {
               right: '20px',
               width: '400px',
               height: '500px',
-              backgroundColor: 'var(--ifm-background-surface-color)',
-              border: '1px solid var(--ifm-color-emphasis-300)',
+              backgroundColor: '#f0f9ff',
+              border: '1px solid #bae6fd',
               borderRadius: '8px',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+              boxShadow: '0 4px 12px rgba(14, 165, 233, 0.15)',
               zIndex: 1000,
               display: 'flex',
               flexDirection: 'column',
@@ -260,7 +261,7 @@ const RAGChatbot: React.FC = () => {
             {/* Header */}
             <div
               style={{
-                backgroundColor: 'var(--ifm-color-primary)',
+                backgroundColor: '#0ea5e9',
                 color: 'white',
                 padding: '12px',
                 borderTopLeftRadius: '8px',
@@ -291,11 +292,11 @@ const RAGChatbot: React.FC = () => {
                 flex: 1,
                 padding: '16px',
                 overflowY: 'auto',
-                backgroundColor: 'var(--ifm-background-color)'
+                backgroundColor: '#f0f9ff'
               }}
             >
               {messages.length === 0 ? (
-                <div style={{ textAlign: 'center', color: 'var(--ifm-color-emphasis-700)', marginTop: '20px' }}>
+                <div style={{ textAlign: 'center', color: '#64748b', marginTop: '20px' }}>
                   Ask me anything about the Physical AI & Humanoid Robotics textbook!
                 </div>
               ) : (
@@ -317,9 +318,9 @@ const RAGChatbot: React.FC = () => {
                           padding: '8px 12px',
                           borderRadius: '18px',
                           backgroundColor: message.isUser
-                            ? 'var(--ifm-color-emphasis-200)'
-                            : 'var(--ifm-color-primary)',
-                          color: message.isUser ? 'var(--ifm-font-color-base)' : 'white',
+                            ? '#dbeafe'
+                            : '#e0f2fe',
+                          color: message.isUser ? '#1e293b' : '#0c4a6e',
                           maxWidth: '80%',
                           wordWrap: 'break-word'
                         }}
@@ -340,7 +341,7 @@ const RAGChatbot: React.FC = () => {
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   style={{
-                                    color: 'var(--ifm-color-primary)',
+                                    color: '#0ea5e9',
                                     textDecoration: 'none'
                                   }}
                                 >
@@ -365,8 +366,8 @@ const RAGChatbot: React.FC = () => {
                           display: 'inline-block',
                           padding: '8px 12px',
                           borderRadius: '18px',
-                          backgroundColor: 'var(--ifm-color-primary)',
-                          color: 'white',
+                          backgroundColor: '#e0f2fe',
+                          color: '#0c4a6e',
                           maxWidth: '80%'
                         }}
                       >
@@ -383,8 +384,8 @@ const RAGChatbot: React.FC = () => {
             <div
               style={{
                 padding: '12px',
-                borderTop: '1px solid var(--ifm-color-emphasis-300)',
-                backgroundColor: 'var(--ifm-background-color)'
+                borderTop: '1px solid #bae6fd',
+                backgroundColor: '#f0f9ff'
               }}
             >
               <div style={{ display: 'flex' }}>
@@ -399,11 +400,11 @@ const RAGChatbot: React.FC = () => {
                   style={{
                     flex: 1,
                     padding: '8px 12px',
-                    border: '1px solid var(--ifm-color-emphasis-300)',
+                    border: '1px solid #bae6fd',
                     borderRadius: '18px',
                     marginRight: '8px',
-                    backgroundColor: 'var(--ifm-background-surface-color)',
-                    color: 'var(--ifm-font-color-base)'
+                    backgroundColor: 'white',
+                    color: '#1e293b'
                   }}
                 />
                 <button
@@ -411,7 +412,7 @@ const RAGChatbot: React.FC = () => {
                   disabled={isLoading || !inputValue.trim()}
                   style={{
                     padding: '8px 16px',
-                    backgroundColor: 'var(--ifm-color-primary)',
+                    backgroundColor: '#0ea5e9',
                     color: 'white',
                     border: 'none',
                     borderRadius: '18px',
@@ -422,13 +423,13 @@ const RAGChatbot: React.FC = () => {
                   Send
                 </button>
               </div>
-              <div style={{ fontSize: '12px', color: 'var(--ifm-color-emphasis-700)', marginTop: '8px', textAlign: 'center' }}>
+              <div style={{ fontSize: '12px', color: '#64748b', marginTop: '8px', textAlign: 'center' }}>
                 <button
                   onClick={handleSelectedText}
                   style={{
                     background: 'none',
                     border: 'none',
-                    color: 'var(--ifm-color-primary)',
+                    color: '#0ea5e9',
                     textDecoration: 'underline',
                     cursor: 'pointer',
                     padding: 0
