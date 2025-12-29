@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import MiniSearch from 'minisearch';
 
 interface Document {
@@ -194,10 +195,21 @@ const RAGChatbot: React.FC = () => {
 
   return (
     <>
-      {/* Floating chat button */}
-      <button
+      {/* Floating chat button with pulse animation */}
+      <motion.button
         onClick={toggleChat}
         className="rag-chatbot-button"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        animate={{
+          scale: [1, 1.05, 1],
+        }}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          repeatType: "loop",
+          ease: "easeInOut"
+        }}
         style={{
           position: 'fixed',
           bottom: '20px',
@@ -218,28 +230,33 @@ const RAGChatbot: React.FC = () => {
         }}
       >
         💬
-      </button>
+      </motion.button>
 
-      {/* Chat window */}
-      {isOpen && (
-        <div
-          className="rag-chatbot-window"
-          style={{
-            position: 'fixed',
-            bottom: '90px',
-            right: '20px',
-            width: '400px',
-            height: '500px',
-            backgroundColor: 'var(--ifm-background-surface-color)',
-            border: '1px solid var(--ifm-color-emphasis-300)',
-            borderRadius: '8px',
-            boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-            zIndex: 1000,
-            display: 'flex',
-            flexDirection: 'column',
-            fontFamily: 'system-ui, -apple-system, sans-serif'
-          }}
-        >
+      {/* Chat window with slide-in animation */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="rag-chatbot-window"
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 50, scale: 0.9 }}
+            transition={{ type: "spring", damping: 20, stiffness: 300, duration: 0.3 }}
+            style={{
+              position: 'fixed',
+              bottom: '90px',
+              right: '20px',
+              width: '400px',
+              height: '500px',
+              backgroundColor: 'var(--ifm-background-surface-color)',
+              border: '1px solid var(--ifm-color-emphasis-300)',
+              borderRadius: '8px',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+              zIndex: 1000,
+              display: 'flex',
+              flexDirection: 'column',
+              fontFamily: 'system-ui, -apple-system, sans-serif'
+            }}
+          >
           {/* Header */}
           <div
             style={{
@@ -283,9 +300,12 @@ const RAGChatbot: React.FC = () => {
               </div>
             ) : (
               <div>
-                {messages.map((message) => (
-                  <div
+                {messages.map((message, index) => (
+                  <motion.div
                     key={message.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.05 }}
                     style={{
                       marginBottom: '12px',
                       textAlign: message.isUser ? 'right' : 'left'
@@ -331,10 +351,15 @@ const RAGChatbot: React.FC = () => {
                         </ul>
                       </div>
                     )}
-                  </div>
+                  </motion.div>
                 ))}
                 {isLoading && (
-                  <div style={{ textAlign: 'left' }}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                    style={{ textAlign: 'left' }}
+                  >
                     <div
                       style={{
                         display: 'inline-block',
@@ -345,9 +370,9 @@ const RAGChatbot: React.FC = () => {
                         maxWidth: '80%'
                       }}
                     >
-                      Thinking...
+                      <TypingIndicator />
                     </div>
-                  </div>
+                  </motion.div>
                 )}
                 <div ref={messagesEndRef} />
               </div>
@@ -415,7 +440,55 @@ const RAGChatbot: React.FC = () => {
           </div>
         </div>
       )}
+    </AnimatePresence>
     </>
+  );
+};
+
+// Typing indicator component with animated dots
+const TypingIndicator = () => {
+  return (
+    <div style={{ display: 'flex', alignItems: 'center' }}>
+      <span>Thinking</span>
+      <motion.span
+        animate={{ opacity: [0, 1, 0] }}
+        transition={{
+          duration: 1.5,
+          repeat: Infinity,
+          repeatType: "loop",
+          ease: "easeInOut"
+        }}
+        style={{ marginLeft: '4px' }}
+      >
+        .
+      </motion.span>
+      <motion.span
+        animate={{ opacity: [0, 1, 0] }}
+        transition={{
+          duration: 1.5,
+          repeat: Infinity,
+          repeatType: "loop",
+          ease: "easeInOut",
+          delay: 0.2
+        }}
+        style={{ marginLeft: '2px' }}
+      >
+        .
+      </motion.span>
+      <motion.span
+        animate={{ opacity: [0, 1, 0] }}
+        transition={{
+          duration: 1.5,
+          repeat: Infinity,
+          repeatType: "loop",
+          ease: "easeInOut",
+          delay: 0.4
+        }}
+        style={{ marginLeft: '2px' }}
+      >
+        .
+      </motion.span>
+    </div>
   );
 };
 
