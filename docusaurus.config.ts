@@ -15,10 +15,10 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: url: 'https://physical-ai-humanoid-robotics-book-ashy-two.vercel.app',
+  url: 'https://physical-ai-humanoid-robotics-book-ashy-two.vercel.app',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: 'baseUrl: '/',
+  baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -81,6 +81,22 @@ const config: Config = {
     //     searchPagePath: 'search',
     //   },
     // ],
+  ],
+
+  themes: [
+    // [
+    //   '@docusaurus/theme-search-algolia',
+    //   {
+    //     // The search page theme configuration
+    //     contextualSearch: true,
+    //     searchPagePath: 'search',
+    //   },
+    // ],
+  ],
+
+  // Add the RAG chatbot as a client module
+  clientModules: [
+    require.resolve('./src/utils/rag-chatbot-injector.ts'),
   ],
 
   themeConfig: {
