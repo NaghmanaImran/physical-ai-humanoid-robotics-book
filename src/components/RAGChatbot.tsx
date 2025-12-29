@@ -37,7 +37,7 @@ const RAGChatbot: React.FC = () => {
         // Dynamically import the generated documentation index
         const docsIndex = await import('../utils/docs-index.json');
         const docs = docsIndex.default || docsIndex;
-
+        
         // Add all documents to the search index
         miniSearch.addAll(docs);
         setSearchIndex(miniSearch);
@@ -78,7 +78,7 @@ const RAGChatbot: React.FC = () => {
 
     try {
       // Search for relevant documents
-      const results = searchIndex.search(userMessage, {
+      const results = searchIndex.search(userMessage, { 
         prefix: true,
         fuzzy: 0.2,
         boost: { title: 1.5, content: 1 }
@@ -148,7 +148,7 @@ const RAGChatbot: React.FC = () => {
         if (selection && selection.rangeCount > 0) {
           const range = selection.getRangeAt(0);
           const rect = range.getBoundingClientRect();
-
+          
           // Create a temporary button element
           const button = document.createElement('div');
           button.id = 'ask-about-text-button';
@@ -156,7 +156,7 @@ const RAGChatbot: React.FC = () => {
           button.style.position = 'absolute';
           button.style.top = `${rect.top - 30}px`;
           button.style.left = `${rect.left}px`;
-          button.style.backgroundColor = '#3578e5';
+          button.style.backgroundColor = 'var(--ifm-color-primary)';
           button.style.color = 'white';
           button.style.padding = '5px 10px';
           button.style.borderRadius = '4px';
@@ -164,14 +164,14 @@ const RAGChatbot: React.FC = () => {
           button.style.fontSize = '12px';
           button.style.zIndex = '9999';
           button.style.boxShadow = '0 2px 4px rgba(0,0,0,0.2)';
-
+          
           button.onclick = () => {
             document.body.removeChild(button);
             handleSelectedText();
           };
-
+          
           document.body.appendChild(button);
-
+          
           // Remove the button after a delay
           setTimeout(() => {
             if (document.contains(button)) {
@@ -201,10 +201,10 @@ const RAGChatbot: React.FC = () => {
         className="rag-chatbot-button"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        animate={{
+        animate={{ 
           scale: [1, 1.05, 1],
         }}
-        transition={{
+        transition={{ 
           duration: 2,
           repeat: Infinity,
           repeatType: "loop",
@@ -257,190 +257,190 @@ const RAGChatbot: React.FC = () => {
               fontFamily: 'system-ui, -apple-system, sans-serif'
             }}
           >
-          {/* Header */}
-          <div
-            style={{
-              backgroundColor: 'var(--ifm-color-primary)',
-              color: 'white',
-              padding: '12px',
-              borderTopLeftRadius: '8px',
-              borderTopRightRadius: '8px',
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center'
-            }}
-          >
-            <h3 style={{ margin: 0, fontSize: '16px' }}>Textbook Assistant</h3>
-            <button
-              onClick={toggleChat}
+            {/* Header */}
+            <div
               style={{
-                background: 'none',
-                border: 'none',
+                backgroundColor: 'var(--ifm-color-primary)',
                 color: 'white',
-                fontSize: '18px',
-                cursor: 'pointer'
+                padding: '12px',
+                borderTopLeftRadius: '8px',
+                borderTopRightRadius: '8px',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center'
               }}
             >
-              ×
-            </button>
-          </div>
-
-          {/* Messages container */}
-          <div
-            style={{
-              flex: 1,
-              padding: '16px',
-              overflowY: 'auto',
-              backgroundColor: 'var(--ifm-background-color)'
-            }}
-          >
-            {messages.length === 0 ? (
-              <div style={{ textAlign: 'center', color: 'var(--ifm-color-emphasis-700)', marginTop: '20px' }}>
-                Ask me anything about the Physical AI & Humanoid Robotics textbook!
-              </div>
-            ) : (
-              <div>
-                {messages.map((message, index) => (
-                  <motion.div
-                    key={message.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.05 }}
-                    style={{
-                      marginBottom: '12px',
-                      textAlign: message.isUser ? 'right' : 'left'
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: 'inline-block',
-                        padding: '8px 12px',
-                        borderRadius: '18px',
-                        backgroundColor: message.isUser
-                          ? 'var(--ifm-color-emphasis-200)'
-                          : 'var(--ifm-color-primary)',
-                        color: message.isUser ? 'var(--ifm-font-color-base)' : 'white',
-                        maxWidth: '80%',
-                        wordWrap: 'break-word'
-                      }}
-                    >
-                      {message.text.split('\n').map((line, i) => (
-                        <div key={i}>{line}</div>
-                      ))}
-                    </div>
-
-                    {!message.isUser && message.sources && message.sources.length > 0 && (
-                      <div style={{ fontSize: '12px', marginTop: '4px' }}>
-                        <strong>Sources:</strong>
-                        <ul style={{ margin: '4px 0', paddingLeft: '20px' }}>
-                          {message.sources.map((source, idx) => (
-                            <li key={idx}>
-                              <a
-                                href={source}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                style={{
-                                  color: 'var(--ifm-color-primary)',
-                                  textDecoration: 'none'
-                                }}
-                              >
-                                {source}
-                              </a>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                  </motion.div>
-                ))}
-                {isLoading && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, ease: "easeOut" }}
-                    style={{ textAlign: 'left' }}
-                  >
-                    <div
-                      style={{
-                        display: 'inline-block',
-                        padding: '8px 12px',
-                        borderRadius: '18px',
-                        backgroundColor: 'var(--ifm-color-primary)',
-                        color: 'white',
-                        maxWidth: '80%'
-                      }}
-                    >
-                      <TypingIndicator />
-                    </div>
-                  </motion.div>
-                )}
-                <div ref={messagesEndRef} />
-              </div>
-            )}
-          </div>
-
-          {/* Input area */}
-          <div
-            style={{
-              padding: '12px',
-              borderTop: '1px solid var(--ifm-color-emphasis-300)',
-              backgroundColor: 'var(--ifm-background-color)'
-            }}
-          >
-            <div style={{ display: 'flex' }}>
-              <input
-                ref={inputRef}
-                type="text"
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                onKeyDown={handleKeyDown}
-                placeholder="Ask about the textbook..."
-                disabled={isLoading}
-                style={{
-                  flex: 1,
-                  padding: '8px 12px',
-                  border: '1px solid var(--ifm-color-emphasis-300)',
-                  borderRadius: '18px',
-                  marginRight: '8px',
-                  backgroundColor: 'var(--ifm-background-surface-color)',
-                  color: 'var(--ifm-font-color-base)'
-                }}
-              />
+              <h3 style={{ margin: 0, fontSize: '16px' }}>Textbook Assistant</h3>
               <button
-                onClick={handleSendMessage}
-                disabled={isLoading || !inputValue.trim()}
-                style={{
-                  padding: '8px 16px',
-                  backgroundColor: 'var(--ifm-color-primary)',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '18px',
-                  cursor: 'pointer',
-                  opacity: (isLoading || !inputValue.trim()) ? 0.6 : 1
-                }}
-              >
-                Send
-              </button>
-            </div>
-            <div style={{ fontSize: '12px', color: 'var(--ifm-color-emphasis-700)', marginTop: '8px', textAlign: 'center' }}>
-              <button
-                onClick={handleSelectedText}
+                onClick={toggleChat}
                 style={{
                   background: 'none',
                   border: 'none',
-                  color: 'var(--ifm-color-primary)',
-                  textDecoration: 'underline',
-                  cursor: 'pointer',
-                  padding: 0
+                  color: 'white',
+                  fontSize: '18px',
+                  cursor: 'pointer'
                 }}
               >
-                Ask about selected text
+                ×
               </button>
             </div>
-          </div>
-        </div>
-      </motion.div>
-    </AnimatePresence>
+
+            {/* Messages container */}
+            <div
+              style={{
+                flex: 1,
+                padding: '16px',
+                overflowY: 'auto',
+                backgroundColor: 'var(--ifm-background-color)'
+              }}
+            >
+              {messages.length === 0 ? (
+                <div style={{ textAlign: 'center', color: 'var(--ifm-color-emphasis-700)', marginTop: '20px' }}>
+                  Ask me anything about the Physical AI & Humanoid Robotics textbook!
+                </div>
+              ) : (
+                <div>
+                  {messages.map((message, index) => (
+                    <motion.div
+                      key={message.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.05 }}
+                      style={{
+                        marginBottom: '12px',
+                        textAlign: message.isUser ? 'right' : 'left'
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: 'inline-block',
+                          padding: '8px 12px',
+                          borderRadius: '18px',
+                          backgroundColor: message.isUser
+                            ? 'var(--ifm-color-emphasis-200)'
+                            : 'var(--ifm-color-primary)',
+                          color: message.isUser ? 'var(--ifm-font-color-base)' : 'white',
+                          maxWidth: '80%',
+                          wordWrap: 'break-word'
+                        }}
+                      >
+                        {message.text.split('\n').map((line, i) => (
+                          <div key={i}>{line}</div>
+                        ))}
+                      </div>
+
+                      {!message.isUser && message.sources && message.sources.length > 0 && (
+                        <div style={{ fontSize: '12px', marginTop: '4px' }}>
+                          <strong>Sources:</strong>
+                          <ul style={{ margin: '4px 0', paddingLeft: '20px' }}>
+                            {message.sources.map((source, idx) => (
+                              <li key={idx}>
+                                <a
+                                  href={source}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  style={{
+                                    color: 'var(--ifm-color-primary)',
+                                    textDecoration: 'none'
+                                  }}
+                                >
+                                  {source}
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </motion.div>
+                  ))}
+                  {isLoading && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, ease: "easeOut" }}
+                      style={{ textAlign: 'left' }}
+                    >
+                      <div
+                        style={{
+                          display: 'inline-block',
+                          padding: '8px 12px',
+                          borderRadius: '18px',
+                          backgroundColor: 'var(--ifm-color-primary)',
+                          color: 'white',
+                          maxWidth: '80%'
+                        }}
+                      >
+                        <TypingIndicator />
+                      </div>
+                    </motion.div>
+                  )}
+                  <div ref={messagesEndRef} />
+                </div>
+              )}
+            </div>
+
+            {/* Input area */}
+            <div
+              style={{
+                padding: '12px',
+                borderTop: '1px solid var(--ifm-color-emphasis-300)',
+                backgroundColor: 'var(--ifm-background-color)'
+              }}
+            >
+              <div style={{ display: 'flex' }}>
+                <input
+                  ref={inputRef}
+                  type="text"
+                  value={inputValue}
+                  onChange={(e) => setInputValue(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                  placeholder="Ask about the textbook..."
+                  disabled={isLoading}
+                  style={{
+                    flex: 1,
+                    padding: '8px 12px',
+                    border: '1px solid var(--ifm-color-emphasis-300)',
+                    borderRadius: '18px',
+                    marginRight: '8px',
+                    backgroundColor: 'var(--ifm-background-surface-color)',
+                    color: 'var(--ifm-font-color-base)'
+                  }}
+                />
+                <button
+                  onClick={handleSendMessage}
+                  disabled={isLoading || !inputValue.trim()}
+                  style={{
+                    padding: '8px 16px',
+                    backgroundColor: 'var(--ifm-color-primary)',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '18px',
+                    cursor: 'pointer',
+                    opacity: (isLoading || !inputValue.trim()) ? 0.6 : 1
+                  }}
+                >
+                  Send
+                </button>
+              </div>
+              <div style={{ fontSize: '12px', color: 'var(--ifm-color-emphasis-700)', marginTop: '8px', textAlign: 'center' }}>
+                <button
+                  onClick={handleSelectedText}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    color: 'var(--ifm-color-primary)',
+                    textDecoration: 'underline',
+                    cursor: 'pointer',
+                    padding: 0
+                  }}
+                >
+                  Ask about selected text
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };
@@ -452,8 +452,8 @@ const TypingIndicator = () => {
       <span>Thinking</span>
       <motion.span
         animate={{ opacity: [0, 1, 0] }}
-        transition={{
-          duration: 1.5,
+        transition={{ 
+          duration: 1.5, 
           repeat: Infinity,
           repeatType: "loop",
           ease: "easeInOut"
@@ -464,8 +464,8 @@ const TypingIndicator = () => {
       </motion.span>
       <motion.span
         animate={{ opacity: [0, 1, 0] }}
-        transition={{
-          duration: 1.5,
+        transition={{ 
+          duration: 1.5, 
           repeat: Infinity,
           repeatType: "loop",
           ease: "easeInOut",
@@ -477,8 +477,8 @@ const TypingIndicator = () => {
       </motion.span>
       <motion.span
         animate={{ opacity: [0, 1, 0] }}
-        transition={{
-          duration: 1.5,
+        transition={{ 
+          duration: 1.5, 
           repeat: Infinity,
           repeatType: "loop",
           ease: "easeInOut",
