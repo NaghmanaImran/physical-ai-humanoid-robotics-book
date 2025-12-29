@@ -33,7 +33,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'ROS2: The Robotic Nervous System',
+          label: 'Module 1: ROS 2 - The Robotic Nervous System',
           collapsed: false,
           items: [
             'ros2/intro',
@@ -46,20 +46,21 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Gazebo Simulation',
+          label: 'Module 2: Digital Twin (Gazebo & Unity)',
           collapsed: false,
           items: [
-            'gazebo/intro',
-            'gazebo/installation',
-            'gazebo/simulation-basics',
-            'gazebo/robot-modeling',
-            'gazebo/physics-engines',
-            'gazebo/integration-with-ros2',
+            'modules/digital-twin/intro',
+            'modules/digital-twin/gazebo-installation',
+            'modules/digital-twin/gazebo-robot-modeling',
+            'modules/digital-twin/gazebo-simulation-basics',
+            'modules/digital-twin/gazebo-physics-engines',
+            'modules/digital-twin/unity-integration',
+            'modules/digital-twin/practical-examples',
           ],
         },
         {
           type: 'category',
-          label: 'NVIDIA Isaac Platform',
+          label: 'Module 3: NVIDIA Isaac Platform',
           collapsed: false,
           items: [
             'nvidia-isaac/intro',
@@ -72,7 +73,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'VLA (Vision-Language-Action) Systems',
+          label: 'Module 4: Vision-Language-Action Models',
           collapsed: false,
           items: [
             'vla/intro',

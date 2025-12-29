@@ -64,8 +64,23 @@ const config: Config = {
         theme: {
           customCss: './src/css/custom.css',
         },
+        gtag: {
+          trackingID: 'G-XXXXXXXXXX',
+          anonymizeIP: true,
+        },
       } satisfies Preset.Options,
     ],
+  ],
+
+  themes: [
+    // [
+    //   '@docusaurus/theme-search-algolia',
+    //   {
+    //     // The search page theme configuration
+    //     contextualSearch: true,
+    //     searchPagePath: 'search',
+    //   },
+    // ],
   ],
 
   themeConfig: {
@@ -89,12 +104,45 @@ const config: Config = {
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
+          type: 'search',
+          position: 'right'
+        },
+        {
           href: 'https://github.com/NaghmanaImran/physical-ai-humanoid-robotics-book',
           label: 'GitHub',
           position: 'right',
         },
       ],
     },
+    /*
+    algolia: {
+      // The application ID provided by Algolia
+      appId: 'YOUR_APP_ID',
+
+      // Public API key: it is safe to commit it
+      apiKey: 'YOUR_SEARCH_API_KEY',
+
+      indexName: 'physical-ai-humanoid-robotics-book',
+
+      // Optional: see doc section below
+      contextualSearch: true,
+
+      // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
+      externalUrlRegex: 'external\\.com|domain\\.com',
+
+      // Optional: Replace parts of the item URLs from Algolia. Useful when using the same search index for multiple deployments using a different baseUrl. You can use regexp or string in the `from` param. For example: localhost:3000 vs myCompany.com/docs
+      replaceSearchResultPathname: {
+        from: '/docs/', // or as RegExp: /\/docs\//
+        to: '/docs/',
+      },
+
+      // Optional: Algolia search parameters
+      searchParameters: {},
+
+      // Optional: path for search page that enabled by default (`false` to disable it)
+      searchPagePath: 'search',
+    },
+    */
     footer: {
       style: 'dark',
       links: [
