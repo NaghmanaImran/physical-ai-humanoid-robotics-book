@@ -11,32 +11,32 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Beginner-Friendly Learning',
+    Svg: require('@site/static/img/undraw_robot_learning.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Our Physical AI & Robotics curriculum is designed from the ground up to be easily understood and
+        applied to get you building robots quickly. Start with ROS 2 basics and progress to advanced humanoid systems.
       </>
     ),
   },
   {
     title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    Svg: require('@site/static/img/undraw_robotics_research.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Focus on hands-on robotics learning with simulations and real-world applications. We handle the complex setup -
+        you focus on mastering Physical AI, robotics frameworks, and humanoid systems in our structured curriculum.
       </>
     ),
   },
   {
     title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    Svg: require('@site/static/img/undraw_ai_platform.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Our interactive learning platform leverages React for responsive UI, performance, and extensibility. 
+        The platform can be enhanced with custom components while maintaining consistent educational experiences.
       </>
     ),
   },

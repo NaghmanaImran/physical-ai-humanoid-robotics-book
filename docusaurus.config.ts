@@ -163,46 +163,70 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Textbook',
+          title: '📚 Textbook Modules',
           items: [
             {
-              label: 'Introduction',
-              to: '/docs/intro',
+              label: 'Introduction to Physical AI',
+              to: '/docs/introduction/overview',
+            },
+            {
+              label: 'ROS 2 - Robotic Nervous System',
+              to: '/docs/ros2/intro',
+            },
+            {
+              label: 'Digital Twin (Gazebo & Unity)',
+              to: '/docs/modules/digital-twin/intro',
+            },
+            {
+              label: 'NVIDIA Isaac Platform',
+              to: '/docs/nvidia-isaac/intro',
             },
           ],
         },
         {
-          title: 'Community',
+          title: '🤖 Robotics Resources',
           items: [
             {
-              label: 'Issues',
+              label: 'ROS 2 Documentation',
+              href: 'https://docs.ros.org/en/rolling/',
+            },
+            {
+              label: 'NVIDIA Isaac Documentation',
+              href: 'https://nvidia-isaac-ros.github.io/',
+            },
+            {
+              label: 'Gazebo Simulator',
+              href: 'https://gazebosim.org/',
+            },
+            {
+              label: 'Unity Robotics',
+              href: 'https://unity.com/solutions/industries/robotics',
+            },
+          ],
+        },
+        {
+          title: '🎓 Learning Path',
+          items: [
+            {
+              label: 'Course Structure',
+              to: '/docs/introduction/course-structure',
+            },
+            {
+              label: 'Learning Outcomes',
+              to: '/docs/introduction/learning-outcomes',
+            },
+            {
+              label: 'Projects & Case Studies',
+              to: '/docs/projects/project-ideas',
+            },
+            {
+              label: 'Community',
               href: 'https://github.com/NaghmanaImran/physical-ai-humanoid-robotics-book/issues',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/robotics',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/robotics',
-            },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/NaghmanaImran/physical-ai-humanoid-robotics-book',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Physical AI & Humanoid Robotics. Built with Docusaurus.`,
+      copyright: `🚀 Copyright © ${new Date().getFullYear()} Physical AI & Humanoid Robotics Textbook. Built with Docusaurus for the future of robotics education.`,
     },
     prism: {
       theme: prismThemes.github,
